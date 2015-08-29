@@ -12,20 +12,18 @@ public class RockPaperScissors {
 		int option = 0;
 		Scores scores = new Scores(); //Object that holds two integers and allows you to increment them
 		
+		Scanner playerChoice = new Scanner(System.in);
 		
-
-		
-		while(option != 3){
-			
-			
-			Scanner playerChoice = new Scanner(System.in);
+		do{
 			
 			System.out.println("Select an option!");
 			System.out.println("1: Play the game");
 			System.out.println("2: Check the score");
 			System.out.println("3: Quit the game");
 			
-			option = playerChoice.nextInt(); //This line produces 
+			if(playerChoice.hasNextInt()){
+				option = playerChoice.nextInt(); 
+			}
 		
 			switch(option) {
 
@@ -42,11 +40,9 @@ public class RockPaperScissors {
 						break;
 			}
 			
-			playerChoice.close();
-			
-		}
+		} while(option != 3);
 		
-		
+		playerChoice.close();
 
 	}
 
@@ -56,7 +52,7 @@ public class RockPaperScissors {
 		
 		//The player makes a choice
 		Scanner scanner = new Scanner(System.in);
-		String playerChoice = scanner.nextLine();
+		String playerChoice = scanner.nextLine(); 
 		scanner.close();
 		
 		//Check to see if the player chose one of the given options
