@@ -15,10 +15,17 @@ public class RockPaperScissors {
 
 		do{
 
+<<<<<<< HEAD
 			System.out.println("\nSelect an option!");
 			System.out.println("1: Play the game");
 			System.out.println("2: Check the score");
 			System.out.println("3: Quit the game\n");
+=======
+			System.out.println("Select an option!");
+			System.out.println("1: Play the game");
+			System.out.println("2: Check the score");
+			System.out.println("3: Quit the game");
+>>>>>>> origin/loop-bug-fix
 
 			option = playerChoice.nextInt(); 
 			
@@ -44,19 +51,33 @@ public class RockPaperScissors {
 
 	}
 
+<<<<<<< HEAD
 	private static Scores playGame(Scores scores, Scanner scan) {
+=======
+	private static Scores playGame(Scores scores) {
+>>>>>>> origin/loop-bug-fix
 
 		System.out.println("Pick either rock, paper, or scissors");
 
 		//The player makes a choice
+<<<<<<< HEAD
 		String playerDecision = scan.next(); 
 		
+=======
+		Scanner scanner = new Scanner(System.in);
+		String playerDecision = "";
+		
+		if(scanner.hasNextLine()){
+			playerDecision = scanner.nextLine(); 
+		}
+>>>>>>> origin/loop-bug-fix
 		
 
 		//Check to see if the player chose one of the given options
 		if(playerDecision.equalsIgnoreCase("rock") == false && playerDecision.equalsIgnoreCase("paper") == false && playerDecision.equalsIgnoreCase("scissors") == false){
 
 			System.out.println("You must select either rock, paper, or scissors");
+			scanner.close();
 			return scores;
 		}
 
@@ -66,12 +87,17 @@ public class RockPaperScissors {
 		int randNum = random.nextInt(3);
 		String computerChoice = gameArray[randNum];
 
+<<<<<<< HEAD
 		System.out.println("\nYou chose: " + playerDecision + "\nThe computer choice: " + computerChoice + "\n");
+=======
+		System.out.println("You chose: " + playerDecision + "\nThe computer choice: " + computerChoice);
+>>>>>>> origin/loop-bug-fix
 
 
 		if(playerDecision.equalsIgnoreCase(computerChoice)){ //If it's a tie
 
 			System.out.println("It's a tie!");
+			scanner.close();
 			return scores;
 
 		} else if(playerDecision.equalsIgnoreCase("rock")){ //If the player chooses rock
@@ -79,11 +105,13 @@ public class RockPaperScissors {
 			if(computerChoice.equalsIgnoreCase("paper")){ //If the computer chooses paper
 				System.out.println("The computer wins!");
 				scores.incrementComputerScore();
+				scanner.close();
 				return scores;
 
 			} else if(computerChoice.equalsIgnoreCase("scissors")){ //If the computer chooses scissors
 				System.out.println("You win!");
 				scores.incrementPlayerScore();
+				scanner.close();
 				return scores;
 			}
 
@@ -92,11 +120,13 @@ public class RockPaperScissors {
 			if(computerChoice.equalsIgnoreCase("rock")){ //If the computer chooses rock
 				System.out.println("You win!");
 				scores.incrementPlayerScore();
+				scanner.close();
 				return scores;
 
 			}else if(computerChoice.equalsIgnoreCase("scissors")){ //If the computer chooses scissor
 				System.out.println("The computer wins!");
 				scores.incrementComputerScore();
+				scanner.close();
 				return scores;
 			}
 
@@ -105,14 +135,17 @@ public class RockPaperScissors {
 			if(computerChoice.equalsIgnoreCase("rock")){ //If the computer chooses rock
 				System.out.println("The computer wins!");
 				scores.incrementComputerScore();
+				scanner.close();
 				return scores;
 
 			}else if(computerChoice.equalsIgnoreCase("paper")){ //If the computer chooses paper
 				System.out.println("You win!");
 				scores.incrementPlayerScore();
+				scanner.close();
 				return scores;
 			}
 		}
+		scanner.close();
 		return scores;
 
 	}
